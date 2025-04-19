@@ -1,0 +1,25 @@
+{
+  "name": "JP Rally Fest - Cumpleaños 22", // Nombre completo de la app
+  "short_name": "JP Fest", // Nombre corto (para icono en pantalla de inicio)
+  "description": "Página interactiva y rally para la fiesta de cumpleaños 22 de JP.", // Descripción
+  "start_url": ".", // URL de inicio (usar '.' para la misma carpeta)
+  "display": "standalone", // Cómo se muestra (como app independiente)
+  "background_color": "#1e3a8a", // Color de fondo para splash screen
+  "theme_color": "#1e3a8a", // Color de la barra de título de la app
+  "orientation": "portrait-primary", // Orientación preferida
+  "icons": [
+    {
+      "src": "https://placehold.co/192x192/1e3a8a/ffffff?text=JP", // Ruta a tu icono 192x192 (¡Reemplazar!)
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable" // 'maskable' ayuda a que se vea bien en diferentes formas de icono
+    },
+    {
+      "src": "https://placehold.co/512x512/1e3a8a/ffffff?text=JP", // Ruta a tu icono 512x512 (¡Reemplazar!)
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+    // Puedes añadir más tamaños de iconos aquí si quieres
+  ]
+}
