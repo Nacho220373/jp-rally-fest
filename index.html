@@ -42,54 +42,18 @@
         #completionMessage .secret-phrase { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.2); text-shadow: 1px 1px 1px rgba(0,0,0,0.3); }
         .photo-placeholder { background-color: #bfdbfe; border: 2px dashed #60a5fa; display: flex; align-items: center; justify-content: center; height: 150px; border-radius: 0.5rem; color: #1e3a8a; flex-direction: column; text-align: center; }
         .message { border-left: 4px solid #fbbf24; padding: 0.75rem 1rem; margin-bottom: 1rem; background-color: #f0f9ff; border-radius: 0.25rem; }
-
-        /* **MODIFICADO: Estilos Carrusel Principal JP (Grid 2 Filas)** */
-        .jp-carousel {
-            width: 100%;
-            max-width: 800px;
-            height: 450px; /* Mantener altura o ajustar si es necesario */
-            margin: 1.5rem auto;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 3px solid white;
-            padding: 10px 0; /* Añadir padding vertical */
-        }
-        .jp-carousel .swiper-wrapper {
-            align-items: center; /* Centrar verticalmente */
-        }
-        .jp-carousel .swiper-slide {
-            background-color: #1e3a8a; /* Fondo por si acaso */
-            /* Calcular altura para 2 filas con 10px de espacio */
-            height: calc((100% - 30px) / 2); /* 10px gap + 2*10px padding vertical */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-        .jp-carousel .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cambiar a cover para llenar el slide */
-            border-radius: 0.5rem;
-        }
-        /* Estilos Botones/Paginación Carrusel Principal */
-        .jp-carousel .swiper-button-next, .jp-carousel .swiper-button-prev { /* Usar selector específico */
-             color: #fbbf24; background-color: rgba(30, 58, 138, 0.5); border-radius: 50%; width: 40px; height: 40px; transition: background-color 0.3s ease;
-        }
+        .jp-carousel { width: 100%; max-width: 800px; height: 450px; margin: 1.5rem auto; border-radius: 0.75rem; overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); border: 3px solid white; padding: 10px 0; }
+        .jp-carousel .swiper-wrapper { align-items: center; }
+        .jp-carousel .swiper-slide { background-color: #1e3a8a; height: calc((100% - 30px) / 2); display: flex; justify-content: center; align-items: center; overflow: hidden; border-radius: 0.5rem; }
+        .jp-carousel .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; }
+        .jp-carousel .swiper-button-next, .jp-carousel .swiper-button-prev { color: #fbbf24; background-color: rgba(30, 58, 138, 0.5); border-radius: 50%; width: 40px; height: 40px; transition: background-color 0.3s ease; }
         .jp-carousel .swiper-button-next:hover, .jp-carousel .swiper-button-prev:hover { background-color: rgba(30, 58, 138, 0.8); }
         .jp-carousel .swiper-button-next::after, .jp-carousel .swiper-button-prev::after { font-size: 18px; font-weight: bold; }
-        .jp-carousel .swiper-pagination { position: absolute; bottom: 5px !important; } /* Asegurar posición */
+        .jp-carousel .swiper-pagination { position: absolute; bottom: 5px !important; }
         .jp-carousel .swiper-pagination-bullet { background-color: #dbeafe; opacity: 0.8; }
         .jp-carousel .swiper-pagination-bullet-active { background-color: #fbbf24; opacity: 1; }
-
-
         input[type="file"]::file-selector-button { background-color: #60a5fa; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.3s ease; font-weight: 500; }
         input[type="file"]::file-selector-button:hover { background-color: #3b82f6; }
-
-        /* Estilos Galería Rally (Grid 3 Filas - Sin cambios) */
         .rally-gallery-swiper { width: 100%; height: 420px; padding-top: 10px; padding-bottom: 30px; margin-left: auto; margin-right: auto; }
         .rally-gallery-swiper .swiper-wrapper { align-items: center; }
         .rally-gallery-swiper .swiper-slide { background-color: transparent; height: calc((100% - 40px) / 3); display: flex; justify-content: center; align-items: center; overflow: hidden; border-radius: 0.5rem; }
@@ -255,9 +219,7 @@
             <p>&copy; <span id="year"></span> JP Rally Fest. ¡A celebrar!</p>
         </footer>
 
-    </div>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    </div> <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
         // --- PWA: Registrar Service Worker ---
@@ -295,8 +257,19 @@
         }
 
         // --- Lógica del Rally ---
-        const rallyMissions = [ /* ... (misiones sin cambios) ... */ ];
-        const secretPhrases = [ /* ... (frases sin cambios) ... */ ];
+        const rallyMissions = [
+            { title: "1️⃣ Foto con el cumpleañero", description: "La misión clásica. Haz una selfie con el cumpleañero haciendo una cara loquísima o ridícula. ¡Nada de poses normales!" },
+            { title: "2️⃣ Recrea una foto del carrusel", description: "Elige una de las fotos que viste antes en el carrusel e intenta copiarla exactamente: poses, caras, actitud. ¡Puntos extra por precisión!" },
+            { title: "3️⃣ Shot de tu licor favorito", description: "No hay fiesta sin shots. Tómate uno del licor que más te gusta… o te destruye. Foto del momento, no vale después." },
+            { title: "4️⃣ Toma grupal (mínimo 3 personas)", description: "Consigue que mínimo 3 personas hagan un brindis y se lo tomen al mismo tiempo. ¡Foto en el mero momento!" },
+            { title: "5️⃣ Foto incómoda con alguien", description: "Acércate demasiado, abraza raro, pon cara extraña. El objetivo es que al ver esa foto mañana digas: “¿por qué hicimos eso?”." },
+            { title: "6️⃣ Predicción del destino: Nacho y JP", description: "Haz una foto actuada de cómo crees que van a terminar Nacho y JP al final de la fiesta (tirados, abrazados, dormidos, peleando, etc)." },
+            { title: "7️⃣ Outfit alterado", description: "Cámbiate algo en tu ropa: ponte una prenda ajena, voltea la camiseta, añade algo ridículo. El punto es que se note que pasó algo. ¡Foto posando con actitud!" },
+            { title: "8️⃣ Boda exprés", description: "Declárate, cásate, intercambia anillos falsos y dale un beso (o abrazo) a tu nuevo amor. ¡Foto oficial de la boda improvisada!" },
+            { title: "9️⃣ Cara de 'ya me arrepentí'", description: "Captura el momento después de un shot fuerte, una mala decisión, o simplemente el caos mental. ¡La cara lo dice todo!" },
+            { title: "🔟 Algo con JP", description: "Encuentra a JP y tómate una foto haciendo algo legendario: un brindis, un baile, una escena de película. Solo vale si JP aparece en la foto." }
+        ];
+        const secretPhrases = ["El pastel de chocolate es la clave", "Dile a JP que traigo el tesoro perdido", "La piña colada sabe a victoria", "El karaoke espera al campeón", "Pregunta por el patito de hule dorado", "El flamingo rosa conoce el camino", "Solo los dignos beben del cáliz azul", "La contraseña es 'más tequila'", "El mapa está bajo la servilleta", "Busca al invitado con calcetines diferentes", "El DJ tiene un mensaje para ti", "Susurra 'Aguacate' tres veces", "El verdadero tesoro son los amigos... y el premio", "La chancla voladora es mi señal", "El ajolote fiestero te guiará", "¿Dónde está el botón de autodestrucción?", "El guacamole necesita más limón", "Mi espíritu animal es un taco al pastor", "La conga empieza a medianoche", "Necesito más brillantina en mi vida", "El perro se comió mi dignidad", "Que la fuerza (del shot) te acompañe", "Declaro esta cocina territorio independiente", "El confeti es mi lenguaje de amor", "Soy el campeón indiscutible de las miradas incómodas", "Mi superpoder es pedir otra ronda", "El mezcal me susurra secretos", "Vine por el pastel, me quedé por el chisme", "La cumbia me posee", "Advertencia: puedo empezar a bailar sin previo aviso", "El secreto está en la masa... de la pizza", "Busco socio para conquistar la pista de baile", "Mi plan B es echarle la culpa al alcohol", "¿Alguien ha visto mi unicornio?", "El limón y la sal son mis mejores amigos", "Necesito un café... o cinco tequilas", "Soy alérgico a la falta de fiesta", "El chiste se cuenta solo... después del tercer shot", "Mi propósito en la vida es encontrar snacks", "Que no pare la fiesta, hasta que amanezca... o me duerma", "El mariachi loco quiere bailar contigo", "La vida es corta, come postre primero", "Soy como un Gremlin, no me mojes con agua simple", "El ritmo de la noche me llama", "Mi talento oculto es desaparecer misteriosamente", "Busco almas gemelas... para compartir los nachos", "El que no arriesga, no gana... ni bebe gratis", "Declaro inaugurada la temporada de brindis", "Mi color favorito es el neón de la fiesta", "La última croqueta siempre es la más peleada"];
         const rallySection = document.getElementById('rallySection');
         const startRallyContainer = document.getElementById('startRallyContainer');
         const startRallyButton = document.getElementById('startRallyButton');
@@ -321,11 +294,10 @@
         let currentMissionIndex = 0;
         const totalMissions = rallyMissions.length;
         let rallyStarted = false;
-        let rallyGallerySwiper = null; // Instancia Swiper para la galería
+        let rallyGallerySwiper = null;
 
         // --- Funciones de UI y Estado ---
         function updateRallyUI() {
-            // (Lógica sin cambios)
             const messageSent = localStorage.getItem('jpRallyMessageSent') === 'true';
             startRallyContainer.classList.add('hidden');
             progressBarContainer.classList.add('hidden');
@@ -333,6 +305,7 @@
             fotosSection.classList.add('hidden');
             mensajesSection.classList.add('hidden');
             completionMessageDiv.classList.add('hidden');
+            // La galería se muestra/oculta en initialize y fetch
 
             if (!rallyStarted && !messageSent) {
                 startRallyContainer.classList.remove('hidden');
@@ -364,8 +337,11 @@
                  completionMessageDiv.classList.remove('hidden');
                  gallerySection.classList.remove('hidden');
                  if (!completionMessageDiv.innerHTML.includes('Felicidadeeeeeeees')) {
+                     console.log("Generando mensaje de completado...");
                      const randomPhraseIndex = Math.floor(Math.random() * secretPhrases.length);
+                     console.log("Array length:", secretPhrases.length, "Random index:", randomPhraseIndex);
                      const secretPhrase = secretPhrases[randomPhraseIndex];
+                     console.log("Selected phrase:", secretPhrase);
                      completionMessageDiv.innerHTML = `
                          <h3><i class="fas fa-trophy mr-2 text-yellow-500"></i> ¡Felicidadeeeeeeees! <i class="fas fa-trophy ml-2 text-yellow-500"></i></h3>
                          <p>¡Has completado todas las misiones del JP Rally y te has ganado tu premio de leyenda!</p>
@@ -378,145 +354,71 @@
 
         // --- Función Galería ---
         async function fetchAndDisplayPhotos() {
-            // (Lógica sin cambios)
-             if (!supabase) {
-                gallerySection.classList.add('hidden');
-                return;
-            }
-            galleryLoading.classList.remove('hidden');
-            galleryError.classList.add('hidden');
-            if (rallyGallerySwiper) {
-                rallyGallerySwiper.removeAllSlides();
-            } else {
-                 rallyGalleryWrapper.innerHTML = '';
-            }
+            if (!supabase) { gallerySection.classList.add('hidden'); return; }
+            galleryLoading.classList.remove('hidden'); galleryError.classList.add('hidden');
+            if (rallyGallerySwiper) { rallyGallerySwiper.removeAllSlides(); } else { rallyGalleryWrapper.innerHTML = ''; }
             try {
-                const { data: photos, error } = await supabase
-                    .from('pruebas_rally')
-                    .select('url_foto, numero_mision')
-                    .order('created_at', { ascending: false })
-                    .limit(30);
+                const { data: photos, error } = await supabase.from('pruebas_rally').select('url_foto, numero_mision').order('created_at', { ascending: false }).limit(30);
                 if (error) {
-                    if (error.message.includes('relation "public.pruebas_rally" does not exist')) {
-                         throw new Error("La tabla 'pruebas_rally' no existe.");
-                    } else if (error.message.includes('security policy')) {
-                         throw new Error("Permiso denegado para leer fotos (RLS).");
-                    } else { throw error; }
+                    if (error.message.includes('relation "public.pruebas_rally" does not exist')) { throw new Error("La tabla 'pruebas_rally' no existe."); }
+                    else if (error.message.includes('security policy')) { throw new Error("Permiso denegado para leer fotos (RLS)."); }
+                    else { throw error; }
                 }
                 galleryLoading.classList.add('hidden');
                 if (photos && photos.length > 0) {
                     gallerySection.classList.remove('hidden');
-                    const slidesHTML = photos.map(photo => `
-                        <div class="swiper-slide">
-                            <img src="${photo.url_foto}" alt="Prueba Misión ${photo.numero_mision || '?'}" loading="lazy">
-                        </div>
-                    `).join('');
+                    const slidesHTML = photos.map(photo => `<div class="swiper-slide"><img src="${photo.url_foto}" alt="Prueba Misión ${photo.numero_mision || '?'}" loading="lazy"></div>`).join('');
                     rallyGalleryWrapper.innerHTML = slidesHTML;
-                    if (rallyGallerySwiper) {
-                        rallyGallerySwiper.update();
-                    } else {
-                        rallyGallerySwiper = new Swiper('.rally-gallery-swiper', {
-                            slidesPerView: 3, // Mostrar 3 columnas
-                            slidesPerGroup: 3, // Mover 3 a la vez
-                            grid: {
-                              rows: 3, // 3 Filas
-                              fill: 'row',
-                            },
-                            spaceBetween: 10, // Espacio reducido para grid
-                            // loop: false, // Loop desactivado para grid
-                            autoplay: {
-                              delay: 3000,
-                              disableOnInteraction: true,
-                            },
-                            pagination: {
-                                el: '.rally-gallery-swiper .swiper-pagination',
-                                clickable: true,
-                                type: 'bullets',
-                            },
-                        });
+                    if (rallyGallerySwiper) { rallyGallerySwiper.update(); }
+                    else {
+                        rallyGallerySwiper = new Swiper('.rally-gallery-swiper', { slidesPerView: 3, slidesPerGroup: 3, grid: { rows: 3, fill: 'row' }, spaceBetween: 10, loop: false, autoplay: { delay: 3000, disableOnInteraction: true }, pagination: { el: '.rally-gallery-swiper .swiper-pagination', clickable: true, type: 'bullets' }, });
                     }
                 } else {
                      rallyGalleryWrapper.innerHTML = '<p class="text-center text-gray-500 w-full">Aún no se han subido fotos.</p>';
-                     if (rallyGallerySwiper) {
-                        rallyGallerySwiper.destroy(true, true);
-                        rallyGallerySwiper = null;
-                     }
+                     if (rallyGallerySwiper) { rallyGallerySwiper.destroy(true, true); rallyGallerySwiper = null; }
                      gallerySection.classList.remove('hidden');
                 }
             } catch (error) {
-                console.error('Error cargando galería:', error);
-                galleryLoading.classList.add('hidden');
-                galleryError.textContent = `Error al cargar la galería: ${error.message}`;
-                galleryError.classList.remove('hidden');
-                 gallerySection.classList.remove('hidden');
-                 if (rallyGallerySwiper) {
-                    rallyGallerySwiper.destroy(true, true);
-                    rallyGallerySwiper = null;
-                 }
+                console.error('Error cargando galería:', error); galleryLoading.classList.add('hidden'); galleryError.textContent = `Error al cargar la galería: ${error.message}`; galleryError.classList.remove('hidden'); gallerySection.classList.remove('hidden');
+                 if (rallyGallerySwiper) { rallyGallerySwiper.destroy(true, true); rallyGallerySwiper = null; }
             }
         }
 
         // --- Inicialización Rally ---
         function initializeRally() {
-             // (Lógica sin cambios)
              rallyStarted = localStorage.getItem('jpRallyStarted') === 'true';
             const savedProgress = localStorage.getItem('jpRallyProgress');
             const messageSent = localStorage.getItem('jpRallyMessageSent') === 'true';
-
-            if (messageSent) {
-                 rallyStarted = true;
-                 currentMissionIndex = totalMissions + 1;
-            } else if (rallyStarted && savedProgress !== null) {
+            if (messageSent) { rallyStarted = true; currentMissionIndex = totalMissions + 1; }
+            else if (rallyStarted && savedProgress !== null) {
                  currentMissionIndex = parseInt(savedProgress, 10);
-                 if (isNaN(currentMissionIndex) || currentMissionIndex < 0 || currentMissionIndex > totalMissions) {
-                     currentMissionIndex = 0;
-                     localStorage.setItem('jpRallyProgress', '0');
-                 }
-            } else {
-                 rallyStarted = false;
-                 currentMissionIndex = 0;
-                 localStorage.removeItem('jpRallyProgress');
-                 localStorage.removeItem('jpRallyMessageSent');
-                 localStorage.setItem('jpRallyStarted', 'false');
-            }
-            console.log("Rally inicializado. Iniciado:", rallyStarted, "Misión:", currentMissionIndex);
-
-             if (supabase) {
-                updateRallyUI();
-                fetchAndDisplayPhotos(); // Cargar galería siempre al iniciar
-             } else {
-                 startRallyContainer?.classList.remove('hidden');
-                 startRallyButton?.setAttribute('disabled', 'true');
-                 if(startRallyButton) startRallyButton.textContent = 'Error de Conexión';
-                 gallerySection.classList.add('hidden');
-             }
+                 if (isNaN(currentMissionIndex) || currentMissionIndex < 0 || currentMissionIndex > totalMissions) { currentMissionIndex = 0; localStorage.setItem('jpRallyProgress', '0'); }
+            } else { rallyStarted = false; currentMissionIndex = 0; localStorage.removeItem('jpRallyProgress'); localStorage.removeItem('jpRallyMessageSent'); localStorage.setItem('jpRallyStarted', 'false'); }
+            console.log("Rally inicializado. Iniciado:", rallyStarted, "Misión actual:", currentMissionIndex);
+             if (supabase) { updateRallyUI(); fetchAndDisplayPhotos(); }
+             else { startRallyContainer?.classList.remove('hidden'); startRallyButton?.setAttribute('disabled', 'true'); if(startRallyButton) startRallyButton.textContent = 'Error de Conexión'; gallerySection.classList.add('hidden'); }
         }
 
         // --- Event Listeners ---
         startRallyButton.addEventListener('click', () => {
-             // (Lógica sin cambios)
              if (!rallyStarted && supabase) {
+                console.log("Botón Empezar Rally presionado.");
                 rallyStarted = true;
-                currentMissionIndex = 0;
+                currentMissionIndex = 0; // Forzar índice a 0
                 localStorage.setItem('jpRallyStarted', 'true');
                 localStorage.setItem('jpRallyProgress', '0');
                 localStorage.removeItem('jpRallyMessageSent');
-                console.log("Rally iniciado!");
+                console.log("Estado después de empezar:", { rallyStarted, currentMissionIndex });
                 updateRallyUI();
-            } else if (!supabase) {
-                 alert("Error: No se pudo iniciar el rally. Revisa la conexión.");
-            }
+            } else if (!supabase) { alert("Error: No se pudo iniciar el rally. Revisa la conexión."); }
         });
 
         uploadButton.addEventListener('click', async () => {
-            // (Lógica sin cambios)
             if (!rallyStarted || currentMissionIndex >= totalMissions || !supabase) return;
             const file = photoUploadInput.files[0];
             if (!file) { alert('Por favor, selecciona una foto como evidencia.'); return; }
             uploadStatus.textContent = 'Subiendo prueba...'; uploadButton.disabled = true;
-            const userId = `invitado_${Date.now()}`;
-            const fileName = `${userId}/mision_${currentMissionIndex + 1}_${Date.now()}_${file.name}`;
-            const bucketName = 'pruebas-rally';
+            const userId = `invitado_${Date.now()}`; const fileName = `${userId}/mision_${currentMissionIndex + 1}_${Date.now()}_${file.name}`; const bucketName = 'pruebas-rally';
             try {
                 const { data: uploadData, error: uploadError } = await supabase.storage.from(bucketName).upload(fileName, file, { cacheControl: '3600', upsert: false });
                 if (uploadError) throw uploadError;
@@ -541,7 +443,6 @@
         });
 
         sendMessageButton.addEventListener('click', async () => {
-            // (Lógica sin cambios)
             const name = guestNameInput.value.trim() || "Invitado Anónimo"; const message = messageTextInput.value.trim();
             if (!message) { alert('Por favor, escribe tu mensaje para JP.'); return; }
             if (rallyStarted && currentMissionIndex === totalMissions && localStorage.getItem('jpRallyMessageSent') !== 'true' && supabase) {
@@ -566,30 +467,17 @@
 
         // --- Inicialización General ---
         document.getElementById('year').textContent = new Date().getFullYear();
-        // **MODIFICADO: Inicialización Swiper Principal con opciones Grid**
         const mainSwiper = new Swiper('.jp-carousel', {
-            slidesPerView: 3, // 3 columnas
-            slidesPerGroup: 3, // Mover 3 a la vez
-            grid: {
-              rows: 2, // 2 filas
-              fill: 'row',
-            },
-            spaceBetween: 10, // Espacio entre slides
-            loop: false, // Loop desactivado para grid (más estable)
-            autoplay: {
-                delay: 4000, // Delay un poco más largo para grid
-                disableOnInteraction: false, // Continuar autoplay
-            },
-            pagination: {
-                el: '.jp-carousel .swiper-pagination', // Selector específico
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.jp-carousel .swiper-button-next', // Selector específico
-                prevEl: '.jp-carousel .swiper-button-prev', // Selector específico
-            },
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            grid: { rows: 2, fill: 'row' },
+            spaceBetween: 10,
+            loop: false, // Loop desactivado para grid
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            pagination: { el: '.jp-carousel .swiper-pagination', clickable: true },
+            navigation: { nextEl: '.jp-carousel .swiper-button-next', prevEl: '.jp-carousel .swiper-button-prev' },
         });
-        // Inicializar rally (y galería dentro de él si Supabase está ok)
+        // Inicializar rally
         initializeRally();
 
     </script>
